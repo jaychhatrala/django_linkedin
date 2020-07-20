@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from .views import scrape_linkedin
+from .views import index, scrape_linkedin
 
 urlpatterns = [
+    path('index/', index, name='index'),
     path('scrape_linkedin/', scrape_linkedin, name='scrape_linkedin'),
 ]

@@ -1,5 +1,6 @@
 import time
 import json
+import os, sys
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -10,7 +11,16 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import status
 
+from django.shortcuts import render
+
 # Create your views here.
+
+
+def index(request):
+    operating_system = os.name
+    system_platform = sys.platform
+    return render(request, 'linkedin_app/home.html',
+                  {'operating_system': operating_system, 'system_platform': system_platform})
 
 
 @api_view(['GET'])
